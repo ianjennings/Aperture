@@ -34,7 +34,7 @@ extension Aperture {
 		}
 
 		public static func screen() -> [Screen] {
-			NSScreen.screens.map { Screen(id: $0.id, name: $0.name, modelId: $0.modelID) }
+			NSScreen.screens.map { Screen(id: $0.id, name: $0.name) }
 		}
 
 		public static func audio() -> [Audio] {
