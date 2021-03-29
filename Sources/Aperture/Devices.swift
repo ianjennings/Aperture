@@ -19,11 +19,13 @@ extension Aperture {
 		public struct Screen: Hashable, Codable {
 			public let id: CGDirectDisplayID
 			public let name: String
+			public let modelId: String
 		}
 
 		public struct Audio: Hashable, Codable {
 			public let id: String
 			public let name: String
+			public let modelId: String
 		}
 
 		public struct IOS: Hashable, Codable {
@@ -32,12 +34,12 @@ extension Aperture {
 		}
 
 		public static func screen() -> [Screen] {
-			NSScreen.screens.map { Screen(id: $0.id, name: $0.name) }
+			NSScreen.screens.map { Screen(id: $0.id, name: $0.name, modelId: $0.modelID) }
 		}
 
 		public static func audio() -> [Audio] {
 			AVCaptureDevice.devices(for: .audio).map {
-				Audio(id: $0.uniqueID, name: $0.localizedName)
+				Audio(id: $0.uniqueID, name: $0.localizedName, modelId: $0.modelID)
 			}
 		}
 
