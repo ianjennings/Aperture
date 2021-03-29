@@ -25,6 +25,8 @@ extension Aperture {
 			public let id: String
 			public let name: String
 			public let modelId: String
+			public let manufacturer: String
+			public let deviceType: String
 		}
 
 		public struct IOS: Hashable, Codable {
@@ -38,7 +40,7 @@ extension Aperture {
 
 		public static func audio() -> [Audio] {
 			AVCaptureDevice.devices(for: .audio).map {
-				Audio(id: $0.uniqueID, name: $0.localizedName, modelId: $0.modelID)
+				Audio(id: $0.uniqueID, name: $0.localizedName, modelId: $0.modelID, manufacturer: $0.manufacturer, deviceType: $0.deviceType)
 			}
 		}
 
