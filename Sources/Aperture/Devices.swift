@@ -19,7 +19,6 @@ extension Aperture {
 		public struct Screen: Hashable, Codable {
 			public let id: CGDirectDisplayID
 			public let name: String
-			public let modelId: String
 		}
 
 		public struct Audio: Hashable, Codable {
